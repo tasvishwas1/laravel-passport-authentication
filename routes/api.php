@@ -22,4 +22,5 @@ Route::post('login', [LoginController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::get('get-user', [LoginController::class, 'userInfo']);
     Route::get('products', [LoginController::class, 'products']);
+    Route::get('eloquentRelation', [LoginController::class, 'eloquentRelation']);
 });

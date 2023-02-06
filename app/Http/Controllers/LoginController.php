@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
 use Validator;
+use DB;
 
 class LoginController extends Controller
 {
@@ -55,7 +57,13 @@ class LoginController extends Controller
     {
         $user = auth()->user();
         $user_id = $user->id;
-        $products = Product::where('user_id', $user_id)->get();
+
+        $products = DB::table('products')
+        ->join('categories', 'categories.id', '=', 'products.category_id')
+        ->where('products.user_id', $user_id)
+        ->orderBy('products.id', 'DESC')
+        ->get();
+
         return response()->json(['products' => $products], 200);
     }
 
@@ -63,6 +71,17 @@ class LoginController extends Controller
     {
         $user = auth()->user();
         return response()->json(['user' => $user], 200);
+    }
+
+    public function eloquentRelation(Request $request)
+    {
+        // $category = Category::find(2);
+        // $products = $category->product()->get();
+
+        $category = Product::find(2);
+        $products = $category->category()->get();
+
+        return response()->json(['products' => $products], 200);
     }
 
 }
