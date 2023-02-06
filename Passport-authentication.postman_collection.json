@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "ee112e2f-1be6-435e-b283-b159407ee236",
+		"name": "Passport-authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14024301"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Vishwas",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "asodiyavishwas1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "priyankamehta@12",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "priyankamehta@12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "asodiyavishwas1@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"disabled": true
+						},
+						{
+							"key": "confirm_password",
+							"value": "password",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "asodiyavishwas1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "priyankamehta@12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTViNGM0ZDY0MjkyZTFiZmI0MjA5MGMwMjJjZTVkZDI5MDk2NDI1OWY0NzE3NzZkMjc1YTc4MzMwYWU4YmUxMDc4MTJhMDk3MTI0NGEyYzIiLCJpYXQiOjE2NzU2OTQ1MzcsIm5iZiI6MTY3NTY5NDUzNywiZXhwIjoxNzA3MjMwNTM3LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.lny9KdjbzsrK-EEZ1dtmoEC05Vi86OdMotAJY0QZ0Bes7DU-YdCqIOJjY0SwAioHSQfGZqFH81_vReUOcLbGVetbtnPZDewm9iNxmtbCuzEAfujx8bK4M1lJdvxf2IscfMFlradCc_J5ASUcsrAZrphq06X0ZQmU_Cjel9dYMhA3WdEbj_kS8WGRCnYv1B3LwJFU8k0SJhec5VD2YqH32S1la_AViDNKa_I68zibBGZ3ra4FsjMesk67ETxVMk7vZYNrryLncWj-MRIoVY5fO5L8voYzlmwZRyCvmf9WAmFhP9h3egC4DmdF9PEezWvfjiFIA9fF1PBvvf4qVg5UgfdUa1cfQXKPUlqF_btnWyA1GxWSahc9z9P__XCrCGHNgNGytP8OH8bOxp6IayHzFbtX8Y0JM66um_qaZCuPqt4auAHE2-Yra8CT99NIn6c7V-HclfYAwJ2vtzRIDlfYF2tu_v0Q8XkLgV6NrBzXXWCtOP8Us-hgNxiqwZNwp86CDaLScoa1mK8CkXHHRgP3uKMK5Wmk1EWKbliKa0BF9DYUqu4-CeJt_t86CxM7WfHASZcOj_4OR3k4dIcZzg3ixmUDwgGXlRz7TeytifAj4CiMeP4cffvSLGKV9KSbEnMNvNNxTjGEMVYS3rUFp3OsJUKQaWMqBhFiLeI1kA0-US4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get-user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTViNGM0ZDY0MjkyZTFiZmI0MjA5MGMwMjJjZTVkZDI5MDk2NDI1OWY0NzE3NzZkMjc1YTc4MzMwYWU4YmUxMDc4MTJhMDk3MTI0NGEyYzIiLCJpYXQiOjE2NzU2OTQ1MzcsIm5iZiI6MTY3NTY5NDUzNywiZXhwIjoxNzA3MjMwNTM3LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.lny9KdjbzsrK-EEZ1dtmoEC05Vi86OdMotAJY0QZ0Bes7DU-YdCqIOJjY0SwAioHSQfGZqFH81_vReUOcLbGVetbtnPZDewm9iNxmtbCuzEAfujx8bK4M1lJdvxf2IscfMFlradCc_J5ASUcsrAZrphq06X0ZQmU_Cjel9dYMhA3WdEbj_kS8WGRCnYv1B3LwJFU8k0SJhec5VD2YqH32S1la_AViDNKa_I68zibBGZ3ra4FsjMesk67ETxVMk7vZYNrryLncWj-MRIoVY5fO5L8voYzlmwZRyCvmf9WAmFhP9h3egC4DmdF9PEezWvfjiFIA9fF1PBvvf4qVg5UgfdUa1cfQXKPUlqF_btnWyA1GxWSahc9z9P__XCrCGHNgNGytP8OH8bOxp6IayHzFbtX8Y0JM66um_qaZCuPqt4auAHE2-Yra8CT99NIn6c7V-HclfYAwJ2vtzRIDlfYF2tu_v0Q8XkLgV6NrBzXXWCtOP8Us-hgNxiqwZNwp86CDaLScoa1mK8CkXHHRgP3uKMK5Wmk1EWKbliKa0BF9DYUqu4-CeJt_t86CxM7WfHASZcOj_4OR3k4dIcZzg3ixmUDwgGXlRz7TeytifAj4CiMeP4cffvSLGKV9KSbEnMNvNNxTjGEMVYS3rUFp3OsJUKQaWMqBhFiLeI1kA0-US4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eloquentRelation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTViNGM0ZDY0MjkyZTFiZmI0MjA5MGMwMjJjZTVkZDI5MDk2NDI1OWY0NzE3NzZkMjc1YTc4MzMwYWU4YmUxMDc4MTJhMDk3MTI0NGEyYzIiLCJpYXQiOjE2NzU2OTQ1MzcsIm5iZiI6MTY3NTY5NDUzNywiZXhwIjoxNzA3MjMwNTM3LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.lny9KdjbzsrK-EEZ1dtmoEC05Vi86OdMotAJY0QZ0Bes7DU-YdCqIOJjY0SwAioHSQfGZqFH81_vReUOcLbGVetbtnPZDewm9iNxmtbCuzEAfujx8bK4M1lJdvxf2IscfMFlradCc_J5ASUcsrAZrphq06X0ZQmU_Cjel9dYMhA3WdEbj_kS8WGRCnYv1B3LwJFU8k0SJhec5VD2YqH32S1la_AViDNKa_I68zibBGZ3ra4FsjMesk67ETxVMk7vZYNrryLncWj-MRIoVY5fO5L8voYzlmwZRyCvmf9WAmFhP9h3egC4DmdF9PEezWvfjiFIA9fF1PBvvf4qVg5UgfdUa1cfQXKPUlqF_btnWyA1GxWSahc9z9P__XCrCGHNgNGytP8OH8bOxp6IayHzFbtX8Y0JM66um_qaZCuPqt4auAHE2-Yra8CT99NIn6c7V-HclfYAwJ2vtzRIDlfYF2tu_v0Q8XkLgV6NrBzXXWCtOP8Us-hgNxiqwZNwp86CDaLScoa1mK8CkXHHRgP3uKMK5Wmk1EWKbliKa0BF9DYUqu4-CeJt_t86CxM7WfHASZcOj_4OR3k4dIcZzg3ixmUDwgGXlRz7TeytifAj4CiMeP4cffvSLGKV9KSbEnMNvNNxTjGEMVYS3rUFp3OsJUKQaWMqBhFiLeI1kA0-US4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/eloquentRelation",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eloquentRelation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
