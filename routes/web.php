@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InterviewQuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('interview-questions', [InterviewQuestionController::class, 'index']);
+Route::get('add-interview-questions', [InterviewQuestionController::class, 'create']);
 
 Route::get('email-test', function() {
 
