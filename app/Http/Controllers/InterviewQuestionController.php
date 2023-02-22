@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\InterviewQuestion;
 use Illuminate\Http\Request;
 
 class InterviewQuestionController extends Controller
@@ -15,7 +16,8 @@ class InterviewQuestionController extends Controller
      */
     public function index()
     {
-        return view ('interviewQuestion.interviewQuestion');
+        $questions = InterviewQuestion::all();
+        return view('interviewQuestion.interviewQuestion', compact('questions'));
     }
 
     /**
@@ -25,7 +27,7 @@ class InterviewQuestionController extends Controller
      */
     public function create()
     {
-        return view ('interviewQuestion.add-interview-question');
+        return view('interviewQuestion.add-interview-question');
     }
 
     /**
@@ -36,7 +38,21 @@ class InterviewQuestionController extends Controller
      */
     public function store( Request $request )
     {
-        //
+        $validated = $request->validate([
+            'title'       => 'required',
+            'description' => 'required',
+        ]);
+
+        try {
+            $question = new InterviewQuestion();
+            $question->title = $request->title;
+            $question->description = $request->description;
+            $question->save();
+
+            return response()->json(['success' => true, 'message' => 'Post has been successfully created']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -82,5 +98,10 @@ class InterviewQuestionController extends Controller
     public function destroy( Category $category )
     {
         //
+    }
+
+    public function detail(Request $request)
+    {
+        return view('interviewQuestion.detail');
     }
 }
