@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('interview-questions', [InterviewQuestionController::class, 'index']);
 Route::get('add-interview-questions', [InterviewQuestionController::class, 'create']);
+Route::post('save-interview-questions', [InterviewQuestionController::class, 'store']);
+Route::get('interview-question', [InterviewQuestionController::class, 'detail']);
 
 Route::get('email-test', function() {
 
